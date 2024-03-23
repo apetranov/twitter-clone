@@ -5,6 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twitter. It's what's happeing.</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Style for the modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal {
+            background-color: white;
+            max-width: 500px;
+            padding: 50px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div class="flex items-center justify-center w-full h-full">
@@ -28,10 +64,83 @@
                 <button class="my-3 bg-blue-500 hover:bg-blue-700 text-white font-medium py-3 px-6 text-sm rounded-full">Create account</button>
                 <p class="text-xs mb-10">By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use.</p>
                 <h3 class="text-base font-extrabold">Already have an account?</h3>
-                <button class="my-5 outline outline-1 bg-white-500 hover:bg-slate-300 text-sky-700 font-medium py-3 px-12 text-sm rounded-full">Sign in</button>
+                <button id="signin-btn" class="my-5 outline outline-1 bg-white-500 hover:bg-slate-300 text-sky-700 font-medium py-3 px-12 text-sm rounded-full">Sign in</button>
             </div>
         </div>
         </div>
-    </div>      
+    </div>
+
+     <!-- Modal -->
+     <div id="myModal" class="modal-overlay">
+        <!-- Modal content -->
+        <div class="modal">
+            <div class="flex justify-start">
+                <span class="close">&times;</span>
+            </div>
+            
+
+            <div class="p-5">
+            <form>
+                <div class="flex justify-center items-center">
+                    <h2 class="text-2xl font-bold mb-2">Sign in to Twitter</h2>
+                </div>
+                <div class="flex justify-center items-center">
+                    <button class="my-3 outline outline-1 bg-white-500 hover:bg-gray-300 text-black font-medium py-3 px-8 text-sm rounded-full flex items-center">
+                        <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="GoogleLogo" class="h-5 w-5 mr-2">
+                        Sign in with Google
+                    </button>
+                </div>
+                <div class="flex items-center justify-center">
+                    <div class="flex-1 border-t border-gray-500 my-2"></div>
+                    <p class="mx-2">or</p>
+                    <div class="flex-1 border-t border-gray-500 my-2"></div>
+                </div>
+                <div class="mb-4">
+                    <input autocomplete="off" placeholder="Email or username" type="text" id="username" name="username" class="mt-1 p-2 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                </div>
+                <div class="mb-6">
+                    <input autocomplete="off" placeholder="Password" type="password" id="password" name="password" class="mt-1 p-2 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                </div>
+                <div class="flex items-center justify-center">
+                    <button type="submit" class="bg-white-500 outline outline-1 hover:bg-black hover:text-white text-black font-medium py-2 px-10 rounded-full">Sign in</button>
+                </div>
+                <div class="flex items-center justify-center mt-3 mb-7">
+                    <button type="submit" class="bg-black outline outline-1 hover:bg-white hover:text-black text-white font-medium py-2 px-10 rounded-full">Forgot your password?</button>
+                </div>
+                <div class="flex items-center justify-center mt-3 mb-7">
+                    <p class="text-sm">Don't have an account? <button class="text-blue-600 hover:underline">Sign up</button></p>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("signin-btn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
