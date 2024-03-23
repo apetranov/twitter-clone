@@ -6,6 +6,11 @@
     <title>Twitter. It's what's happeing.</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../../static/signIn.js"></script>
+    <script src="../../static/signInInputFieldAnimation.js"></script>
+    <script src="../../static/register.js"></script>
+    <script src="../../static/birthday.js"></script>
+    <link rel="stylesheet" href="../../static/birthday.css">
+    <link rel="stylesheet" href="../../static/singInInputFieldAnimation.css">
     <style>
         /* Style for the modal */
         .modal-overlay {
@@ -41,6 +46,19 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        .close2 {
+            color: #aaa;
+            float: right;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .close2:hover,
+        .close2:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -62,7 +80,7 @@
                     <p class="mx-2">or</p>
                     <div class="flex-1 border-t border-gray-500 my-2"></div>
                 </div>
-                <button class="my-3 bg-blue-500 hover:bg-blue-700 text-white font-medium py-3 px-6 text-sm rounded-full">Create account</button>
+                <button id="register-btn" class="my-3 bg-blue-500 hover:bg-blue-700 text-white font-medium py-3 px-6 text-sm rounded-full">Create account</button>
                 <p class="text-xs mb-10">By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use.</p>
                 <h3 class="text-base font-extrabold">Already have an account?</h3>
                 <button id="signin-btn" class="my-5 outline outline-1 bg-white-500 hover:bg-slate-300 text-sky-700 font-medium py-3 px-12 text-sm rounded-full">Sign in</button>
@@ -78,8 +96,6 @@
             <div class="flex justify-start">
                 <span class="close">&times;</span>
             </div>
-            
-
             <div class="p-5">
             <form>
                 <div class="flex justify-center items-center">
@@ -97,10 +113,10 @@
                     <div class="flex-1 border-t border-gray-500 my-2"></div>
                 </div>
                 <div class="mb-4">
-                    <input autocomplete="off" placeholder="Email or username" type="text" id="username" name="username" class="mt-1 p-2 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                    <input autocomplete="off" placeholder="Email or username" type="text" id="username" name="username" class="animated-input mt-1 p-2 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
                 </div>
                 <div class="mb-6">
-                    <input autocomplete="off" placeholder="Password" type="password" id="password" name="password" class="mt-1 p-2 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                    <input autocomplete="off" placeholder="Password" type="password2" id="password" name="password" class="animated-input mt-1 p-2 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
                 </div>
                 <div class="flex items-center justify-center">
                     <button type="submit" class="bg-white-500 outline outline-1 hover:bg-black hover:text-white text-black font-medium py-2 px-10 rounded-full">Sign in</button>
@@ -110,6 +126,51 @@
                 </div>
                 <div class="flex items-center justify-center mt-3 mb-7">
                     <p class="text-sm">Don't have an account? <button class="text-blue-600 hover:underline">Sign up</button></p>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+
+    <div id="myModal2" class="modal-overlay">
+        <!-- Modal content -->
+        <div class="modal">
+            <div class="flex justify-start">
+                <span class="close2">&times;</span>
+            </div>
+            <div class="p-5">
+            <form>
+                <div class="flex justify-center items-center">
+                    <h2 class="text-2xl font-bold mb-2">Create your account</h2>
+                </div>
+                <div class="mb-4">
+                    <input autocomplete="off" placeholder="Username" type="text" id="username2" name="username2" class="animated-input mt-1 p-2 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                </div>
+                <div class="mb-6">
+                    <input autocomplete="off" placeholder="Email" type="email" id="email" name="email" class="animated-input mt-1 p-2 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                </div>
+                <div class="mb-5">
+                    <input autocomplete="off" placeholder="Password" type="password" id="password2" name="password2" class="animated-input mt-1 p-2 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                </div>
+                <div class="flex justify-center items-center">
+                    <h3 class="text-base font-bold mb-2">Date of birth</h3>
+                </div>
+                <div class="input-container mb-5">
+                    <select id="month" class="dropdown-input">
+                      <option value="" disabled selected>Month</option>
+                    </select>
+                    <select id="day" class="dropdown-input">
+                      <option value="" disabled selected>Day</option>
+                    </select>
+                    <select id="year" class="dropdown-input">
+                      <option value="" disabled selected>Year</option>
+                    </select>
+                </div>
+                <div class="flex items-center justify-center">
+                    <button type="submit" class="bg-white-500 outline outline-1 hover:bg-black hover:text-white text-black font-medium py-2 px-10 rounded-full">Create account</button>
+                </div>
+                <div class="flex items-center justify-center mt-3 mb-7">
+                    <p class="text-sm">Already have an account? <button class="text-blue-600 hover:underline">Sign in</button></p>
                 </div>
             </form>
         </div>

@@ -1,0 +1,11 @@
+.input-container {
+    display: flex;
+    gap: 10px; /* Adjust spacing between dropdowns */
+  }
+  
+  .dropdown-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
