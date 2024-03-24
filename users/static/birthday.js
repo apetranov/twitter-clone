@@ -42,10 +42,3 @@ function populateDays() {
     populateDays(1); // Default to January
     populateYears();
   });
-  
-  // Event listener to update days when a month is selected
-  document.getElementById("month").addEventListener("change", function() {
-    var selectedMonth = parseInt(this.value);
-    populateDays(selectedMonth);
-  });
-  
